@@ -38,5 +38,6 @@ print(f'a = {a} b = {b}')
 # calcular area de um circulo
 import math 
 r = float(input('Coloque um valor de raio de circulo: '))
-areaCirculo = math.pi * (r ** 2)
+areaCirculo = math.pi * math.pow(r, 2)
 print(f'Essa é a area do circulo: {areaCirculo:.2f}')
+print(f'Essa é a area do circulo: {areaCirculo}')
