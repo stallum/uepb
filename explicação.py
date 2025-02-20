@@ -31,3 +31,5 @@ try:
 except ValueError: 
     print('Isso não é um número, por favor escreva um número')
 
+
+"{0:b}".format(37)
