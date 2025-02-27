@@ -1,10 +1,10 @@
-'''for i in range(5):
-    print('Olá, mundo')
+for i in range(5):
+    print(i)
 
-# range(inicio, fim, i/d)
+# range(inicio, fim, +=)
 for i in range(1, 6):
     num = i
-    print(num)'''
+    print(num)
 
 # criar uma sequência de repetição que print numeros impares
 #forma 1

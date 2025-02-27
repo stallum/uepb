@@ -1,7 +1,7 @@
 contMasc = contFemi = 0
-while True:
-    for i in range(3):
-        FeminiMasculino = input('Digite F para Feminino e M para Masculino: ').upper()
+n = 10
+for i in range(n):
+    FeminiMasculino = input('Digite F para Feminino e M para Masculino: ').upper()
     if FeminiMasculino == 'F':
         contFemi += 1
     else:
