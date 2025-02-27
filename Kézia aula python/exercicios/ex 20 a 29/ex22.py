@@ -15,7 +15,7 @@ def numeroValido(indice):
             return num 
 
         except ValueError: 
-            print('isso são é um número válido')
+            print('isso não é um número válido!')
 
 numero = [numeroValido(i) for i in range(2)]
 soma = sum(numero)
