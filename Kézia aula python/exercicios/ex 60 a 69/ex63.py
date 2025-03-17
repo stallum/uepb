@@ -64,7 +64,7 @@ for i in range(num):
     valoresParcelas.append(valorParcela)
 
 tabela = {
-    'Valor da Dívida': dividas,
+    'Valor da Dívida': valoresFinais,
     'Valor dos Juros': valoresJuros,
     'Quantidade de Parcelas': parcelas_list,
     'Valor da Parcela': valoresParcelas
