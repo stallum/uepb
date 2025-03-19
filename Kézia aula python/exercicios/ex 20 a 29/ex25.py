@@ -4,7 +4,7 @@
 # - A mensagem "Você está em recuperação", se a média for maior ou igual a quatro e
 # menor do que sete.
 # - A mensagem "Aprovado com Distinção", se a média for igual a dez.
-
+'''
 def notaN(indice):
     while True:
         nota = float(input(f'Digite a {indice + 1}ª nota: '))
@@ -15,18 +15,29 @@ def notaN(indice):
 
 notas = [notaN(i) for i in range(2)]
 media = sum(notas) / len(notas)
-print(f'A média das notas é: {media:.2f}')
+'''
+nota1 = float(input('Digite sua primeira nota: '))
+nota2 = float(input('Digite sua segunda nota: '))
+media = (nota1 + nota2) / 2
+
+#
+
 
 if media == 10:
+    print(f'A média das notas é: {media:.2f}')
     print('Aprovado com Distinção')
 else:
     if media >= 7:
+        print(f'A média das notas é: {media:.2f}')
         print('Aprovado')
     else:
-        if media < 4:
-            print('Reprovado')
+        if media >= 4 and media < 7 :
+            print(f'A média das notas é: {media:.2f}')
+            print('Você está em recuperação')
+            
         else:
-            if media >= 4 and media < 7:
-                print('Você está em recuperação')
+            if media < 4 and media >= 0:
+                print(f'A média das notas é: {media:.2f}')
+                print('Reprovado')    
             else:
                 print('Erro, nota inválida')

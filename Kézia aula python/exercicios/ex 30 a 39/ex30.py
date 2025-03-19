@@ -13,6 +13,41 @@ Salário Bruto: (5 * 220)        : R$ 1100,00
 (-) Total de descontos          : R$  165,00
 (-) Salário Liquido             : R$  935,00
 '''
+
+valor_hora = float(input('Digite aqui o valor da sua hora de trabalho: '))
+horas_trabalhadas = float(input('Digite aqui a quantidade de horas trabalhadas no mês: '))
+
+salario_bruto = valor_hora * horas_trabalhadas
+
+if salario_bruto <= 900:
+    ir = 0
+elif salario_bruto <= 1500:
+    ir = 0.05
+elif salario_bruto <= 2500:
+    ir = 0.10
+else:
+    ir = 0.20
+
+ir_valor = salario_bruto * ir
+inss_valor = salario_bruto * 0.08
+sindicato_valor = salario_bruto * 0.05
+
+total_descontos = ir_valor + inss_valor + sindicato_valor
+salario_liquido = salario_bruto - total_descontos
+
+if salario_bruto < 0:
+    print('Valor inválido')
+else:
+    print(f'Salário bruto: R${salario_bruto:.2f}')
+    print(f'(-) IR ({ir * 100:.0f}%): R${ir_valor:.2f}')
+    print(f'(-) INSS (8%): R${inss_valor:.2f}')
+    print(f'(-) Sindicato (5%): R${sindicato_valor:.2f}')
+    print(f'Total de descontos: R${total_descontos:.2f}')
+    print(f'Salário líquido: R${salario_liquido:.2f}')
+
+# 
+
+'''
 def calcular_salario(valor_hora, horas_trabalhadas):
     salario_bruto = valor_hora * horas_trabalhadas # define futuramente o valor de salario_bruto
 
@@ -55,3 +90,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''
+
