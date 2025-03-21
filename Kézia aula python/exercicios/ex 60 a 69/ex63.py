@@ -12,63 +12,46 @@ R$ 1.000,00     0               1                       R$ 1.000,00
 R$ 1.100,00     100             3                       R$ 366,00
 R$ 1.150,00     150             6                       R$ 191,67
 '''
-import pandas as pd
-taxaJuros = 0
-dividas = []
-parcelas_list = []
-taxasJuros = []
 
-num = int(input('digite um número inteiro positivo que representará a quantidade de dividas que você quer registrar: '))
+valor_divida = input('Digite o valor da dívida: ')
 
-for i in range(1, num + 1):
-    divida = input('Digite o valor da dívida adquirida: ')
+while valor_divida.isalpha() or float(valor_divida) < 0:
+    valor_divida = input('Valor inválido, digite um valor de dívida válido: ')
+valor_divida = float(valor_divida)
 
-    while divida.isalpha() or float(divida) < 0: 
-        divida = float(input('Valor inválido, digite m valor numérico positivo: '))
-    divida = int(divida)
-    dividas.append(divida)
+print(f'{"Valor da Dívida":<15} {"Valor dos Juros":<15} {"Quantidade de Parcelas":<25} {"Valor da Parcela":<15}')
 
-for i in range(1, num + 1):
-    parcelas = input('Digite a quantidade de meses em que você dividirá sua dívida: \n (Saiba que serão aplicados juros apartir de uma divisão de 3 meses.)\n')
+parcelas = 1
+juros = 0
+valor_total = valor_divida + (valor_divida * juros / 100)
+valor_parcela = valor_total / parcelas
+print(f'R$ {valor_total:,.2f} {juros:<15} {parcelas:<25} R$ {valor_parcela:,.2f}')
 
-    while parcelas.isalpha() or int(parcelas) <= 0:
-        parcelas = int(input('Valor inválido, digite um valor inteiro positivo.'))
+parcelas = 3
+juros = 10
+valor_total = valor_divida + (valor_divida * juros / 100)
+valor_parcela = valor_total / parcelas
+print(f'R$ {valor_total:,.2f} {juros:<15} {parcelas:<25} R$ {valor_parcela:,.2f}')
 
-    parcelas = int(parcelas)
-    parcelas_list.append(parcelas)
+parcelas = 6
+juros = 15
+valor_total = valor_divida + (valor_divida * juros / 100)
+valor_parcela = valor_total / parcelas
+print(f'R$ {valor_total:,.2f} {juros:<15} {parcelas:<25} R$ {valor_parcela:,.2f}')
 
-for i in range(len(parcelas_list)):
-    if parcelas_list[i] <= 2:
-        taxaJuros = 0
-    else:
-        if parcelas_list[i] <= 5:
-            taxaJuros = 0.1
-        else:
-            if parcelas_list[i] >= 6:
-                taxaJuros = 0.15
-            else:
-                print('Quantidade de meses inserida é invalida')
-    taxasJuros.append(taxaJuros)
+#
 
-valoresFinais = []
-valoresJuros = []
-valoresParcelas = []
+'''
+valor_divida = input('Digite o valor da dívida: ')
 
-for i in range(num):
-    valorJuros = dividas[i] * taxasJuros[i]
-    valorFinal = dividas[i] + valorJuros
-    valorParcela = valorFinal / parcelas_list[i]
+while valor_divida.isalpha() or float(valor_divida) < 0:
+    valor_divida = input('Valor inválido, digite um valor de dívida válido: ')
+valor_divida = float(valor_divida)
 
-    valoresJuros.append(valorJuros)
-    valoresFinais.append(valorFinal)
-    valoresParcelas.append(valorParcela)
+parcelas_juros = [(1, 0), (3, 10), (6, 15)]
 
-tabela = {
-    'Valor da Dívida': valoresFinais,
-    'Valor dos Juros': valoresJuros,
-    'Quantidade de Parcelas': parcelas_list,
-    'Valor da Parcela': valoresParcelas
-}
-
-tabela_df = pd.DataFrame (tabela)
-print(tabela_df)
+for parcelas, juros in parcelas_juros:
+    valor_total = valor_divida + (valor_divida * juros / 100)
+    valor_parcela = valor_total / parcelas
+    print(f'R$ {valor_total:,.2f} {'': <5} {juros:<15} {parcelas:<25} R$ {valor_parcela:,.2f}')
+'''
